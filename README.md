@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# 간단한 리액트 연습
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 개발 참고
 
-In the project directory, you can run:
+## 리액트에서 레이아웃 만드는 3가지 방법
+1. html에 class 넣을 땐 className
+	- JSX는 일종의 자바스크립트라서 자바스크립트에서 사용하는 예약어인 class라는 키워드를  막 사용하면 안된다.
+2. 변수를 html에 꽂아넣을 때는 {중괄호} (데이터바인딩)
+3. html에 style 속성 넣고싶으면 
+```js
+<div style={{color: 'blue'}}>파란색</div>
+```
 
-### `npm start`
+## *동적인 UI 만드는 step
+1. html css로 미리 디자인 완성
+2. UI의 현재 상태를 state로 저장
+3. state에 따라 UI가 어떻게 보일지 작성
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## *컴포넌트 만드는법
+1. function 만들고
+2. return() 안에 html담기
+3. <함수명></함수명> 쓰기
+4. 참고 
+	- <></> 
+	- <함수명></함수명> , <Modal/> 가능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## *부모 -> 자식 state 전송하는 법
+1. <자식컴포넌트 작명={state이름}>
+2. props 파라미터 등록 후 props.작명 사용
+3. props 전송은 부모 -> 자식만 가능
+4. 컴포넌트 많아지면 props 쓰는게 귀찮아짐
+5. props로 일반 문자도 전송가능
 
-### `npm test`
+## 동작원리 및 팁
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 어떤걸 컴포넌트로 만들면 좋은가
+1. 반복적인 html 축약할 때
+2. 큰 페이지들
+3. 자주변경되는 것들
 
-### `npm run build`
+### 컴포넌트의 단점
+1. state 가져다 쓸 때 문제생김
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### input 태그
+- input에 뭔가 입력시 코드실행하고 싶으면 onChange / onInput
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 왜 <span> 눌러도 모달창 뜸?
+- 클릭이벤트는 상위 html로 퍼짐(이벤트 버블링)
+	- 이벤트버블링 막고싶으면: e.stopPropagation(); 
 
-### `npm run eject`
+### State변경함수는 늦게처리됨 
+- 비동기 처리되기 때문에 console.log보다 나중에 실행됨(리액트 만든사람이 이렇게 정함)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### State 변경함수 특징
+1. 기존 State ==  신규 State 인 경우 변경 안해준다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###  array/object 특징
+1. array/object 담은 변수엔 화살표만 저장됨
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 리액트 
+1. 리액트는 array안에 html 담아놔도 잘보여준다.
